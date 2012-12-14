@@ -1,0 +1,9 @@
+URI：
+
+用于标示和操作， 在intent里也称之为数据（data），格式如下：
+
+content://com.example.project:200/folder/subfolder/etc
+\---------/  \---------------------------/ \---/ \--------------------------/
+scheme                 host               port        path
+                \--------------------------------/
+                          authority    
