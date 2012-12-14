@@ -1,4 +1,4 @@
-Intent用法大全（来自因特）
+Intent用法大全（来自因特网）
 
 
 显示intent
@@ -34,8 +34,26 @@ intent.setAction(MY_ACTION);
 或者// Intent intent = new Intent(MY_ACTION);
 startActivity(Intent);
 
+如果是想启动另外一个应用程序，如B类是在另外一个应用程序的入口,在其activity中“再”另外加上一个intent-filter
 
- 
+<activity android:name=".B" android:label="@string/app_name">
 
-startActivity(Intent);
+    <intent-filter>
+    
+    <action android:name="android.intent.action.MAIN" />
+    
+    <category android:name="android.intent.category.LAUNCHER" />
+    
+    </intent-filter>
 
+    <intent-filter>
+    
+       <action android:name="com.view.my_action"/>
+       
+       <action android:name="android.intent.action.DEFAULT" />
+       
+       <category android:name="android.intent.category.DEFAULT" />
+    
+    </intent-filter>
+
+</activity>
