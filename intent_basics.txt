@@ -1,0 +1,41 @@
+Intent用法大全（来自因特）
+
+
+显示intent
+隐式intent
+
+对于明确指出了目标组件名称的Intent，我们称之为“显式Intent”。Intent I = new Intent(this.A.class)。通常用户同一个app里的跳转。
+
+对于没有明确指出目标组件名称的Intent，则称之为“隐式 Intent”。例如：
+ Intent intent = new Intent(Intent.ACTION_SEND);
+
+Android系统使用IntentFilter 来寻找与隐式Intent相关的对象。
+
+Intent通常由以下部分构成：
+Action: 
+  Intent intent = new Intent(Intent.ACTION_SEND);
+
+Data:
+Category
+Extras
+
+基本用法：
+startActivity
+startService
+
+显示调用(无需define in AndroidManifest.xml)
+Intent intent = new Intent(this,ABCActivity);
+startActivity(intent)
+
+隐式调用(需要在AndroidManifest.xml定义IntentFiler才能使用）：
+private static String MY_ACTION = "com.view.my_action";
+Intent intent = new Intent(); 
+intent.setAction(MY_ACTION);
+或者// Intent intent = new Intent(MY_ACTION);
+startActivity(Intent);
+
+
+ 
+
+startActivity(Intent);
+
