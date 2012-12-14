@@ -109,4 +109,21 @@ startActivity(Intent);
         <category android:name="android.intent.category.DEFAULT"/>
     </intent-filter>
 </activity>
+
+IntentFilter的使用不止可以在XML里定义，还可以用Java代码来实现(用了广播的写法，还可以有自定义的写法
+，主要是IntentFilter的跳转不同而已。)： 
+// 广播接收者 - 广播的接收
+private BroadcastReceiver myBroadcastReceiver = new BroadcastReceiver() {
+ 
+       @Override
+       public void onReceive(Context context, Intent intent) {
+           // 相关处理，如收短信，监听电量变化信息
+       }
+ 
+    };
+ 
+//代码中注册：
+IntentFilter intentFilter = new IntentFilter( "android.provider.Telephony.SMS_RECEIVED " );
+registerReceiver( mBatteryInfoReceiver , intentFilter);
+
 ref: http://my.oschina.net/u/914701/blog/94946
