@@ -126,4 +126,20 @@ private BroadcastReceiver myBroadcastReceiver = new BroadcastReceiver() {
 IntentFilter intentFilter = new IntentFilter( "android.provider.Telephony.SMS_RECEIVED " );
 registerReceiver( mBatteryInfoReceiver , intentFilter);
 
+public static void shareText(Context context, String title, String text) {
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    intent.setType("text/plain");
+    intent.putExtra(Intent.EXTRA_SUBJECT, title);
+    intent.putExtra(Intent.EXTRA_TEXT, text);
+    context.startActivity(Intent.createChooser(intent, title));
+}
+
+<activity android:name=".SharePage" android:label="分享到微博">
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="image/*" />
+    </intent-filter>
+</activity>
+
 ref: http://my.oschina.net/u/914701/blog/94946
