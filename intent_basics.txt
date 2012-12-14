@@ -1,7 +1,7 @@
 Intent用法大全（来自因特网）
 
 
-显示intent
+显示intent: Intent intent = new Intent(MainActivity.this,BActivity.class);
 隐式intent
 
 对于明确指出了目标组件名称的Intent，我们称之为“显式Intent”。Intent I = new Intent(this.A.class)。通常用户同一个app里的跳转。
@@ -64,11 +64,11 @@ startActivity(Intent);
 
     <intent-filter>
     
-    <action android:name="android.intent.action.MAIN" />
-    
-    <category android:name="android.intent.category.LAUNCHER" />
-    
-    </intent-filter>
+       <action android:name="android.intent.action.MAIN" />
+       
+       <category android:name="android.intent.category.LAUNCHER" />
+       
+       </intent-filter>
 
     <intent-filter>
     
@@ -81,3 +81,32 @@ startActivity(Intent);
     </intent-filter>
 
 </activity>
+
+<activity
+   <android:name=".MainActivity"
+       android:label="@string/title_activity_main" >
+           <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+           <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+   </activity>
+        
+<activity
+<android:name=".BActivity"
+    android:label="@string/title_activity_main"
+    android:launchMode="singleTask" >
+    <intent-filter>
+     <action android:name="com.h3c.intent.ACTION_VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+     </intent-filter>
+</activity>
+        
+<activity
+<android:name=".CActivity"
+    android:label="@string/title_activity_main" >
+    <intent-filter>
+     <action android:name="com.h3c.intent.ACTION_VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+    </intent-filter>
+</activity>
+ref: http://my.oschina.net/u/914701/blog/94946
