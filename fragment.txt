@@ -1,3 +1,74 @@
-fragment其实就是UI组件的包装。
+About Fragment
 
-一个fragment的内容可以像UI元素一样，在xml定义也可以直接从程序里生成。
+fragment is just the UI componets encap.
+
+Content of a fragment can be declared in xml just like views or coded puely.
+
+A Fragment represents a behavior or a portion of user interface in an Activity.
+
+To create a Fragment, just extends the Fragment class. 
+
+Fragment can be declared in the calling Activity's layout xml like
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <fragment
+            android:name="com.androidgamebox.view.fragment.HelloWorldFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+</LinearLayout>
+
+Or declare Fragment in coding:
+
+package com.androidgamebox.view.fragment;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.Button;
+import com.androidgamebox.R;
+
+public class FragmentTest3 extends FragmentActivity {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_1);
+
+        Button btnLoad = (Button) findViewById(R.id.btn_load);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                HelloWorldFragment hello = new HelloWorldFragment();
+                ft.add(R.id.fragment_container, hello, "HELLO");
+                ft.commit();
+            }
+        };
+
+        btnLoad.setOnClickListener(listener);
+
+    }
+}
+This is just the basics. There are more Fragments not like the above:
+
+in DialogFragment class, DialogFragment.show() will take care of adding the fragment
+
+// Get Transation
+FragmentTransaction ft = getFragmentManager().beginTransaction();
+ft.remove(
+
+
+
+
+
+
+
