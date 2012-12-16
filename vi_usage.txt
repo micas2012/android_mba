@@ -1,0 +1,13 @@
+Here to put notes for using vi. 
+
+:i to enter insert mode, which is very usefu.
+
+ctrl+] to see a topic. 
+
+ctrl+t to jump back to previous screen. 
+ctrl+o 
+
+in normal mode, $ to move cursor at the end of a line. 
+And ^ to move the start. In contrast, in shell script, use ctrl+a or ctrl+e to do the same thing.
+
+ 
